@@ -1,0 +1,210 @@
+/* --- UNIVERSAL & SMOOTHING --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EBB2D6; /* Your Custom Pink */
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF; /* All Font White */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* --- PAGE 1: WELCOMY SECTION --- */
+.aesthetic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
+    z-index: -1;
+}
+
+.hero-header {
+    text-align: center;
+    padding-top: 8vh; /* Added space to separate text from photo */
+    min-height: 160px;
+    position: relative;
+    z-index: 10;
+}
+
+.main-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    margin: 0;
+    letter-spacing: -2px;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.role-container {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-top: 15px;
+    height: 40px;
+}
+
+.hero-layout {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centers your main photo */
+    align-items: flex-end;
+    height: 60vh;
+    width: 100%;
+    margin-top: 6vh; /* Pushes photo further down from roles */
+}
+
+/* Pushing Side Images to Far Corners */
+.side-image {
+    position: absolute;
+    bottom: 5vh;
+}
+
+.outer-left {
+    left: 3vw; /* Anchored to left corner */
+}
+
+.outer-right {
+    right: 3vw; /* Anchored to right corner */
+}
+
+.side-image img {
+    width: 20vw;
+    height: 42vh; 
+    object-fit: cover;
+    border-radius: 30px;
+    border: 3px solid #FFFFFF; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.center-photo {
+    z-index: 5;
+}
+
+.center-photo img {
+    height: auto;
+    max-height: 65vh;
+    width: auto;
+    object-fit: contain;
+    border-radius: 200px 200px 0 0;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+/* --- PAGE 2: ACADEMIC JOURNEY --- */
+.education-page {
+    min-height: 100vh;
+    width: 100%;
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 80px;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Central Line */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #FFFFFF;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    padding: 20px 60px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.left { left: 0; text-align: right; }
+.right { left: 50%; text-align: left; }
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #FFFFFF;
+    top: 45px;
+    border-radius: 50%;
+    z-index: 2;
+    border: 4px solid #EBB2D6;
+}
+
+.left::after { right: -12px; }
+.right::after { left: -12px; }
+
+/* LAVENDER BLOCKS */
+.milestone-card {
+    padding: 30px;
+    background-color: #9F81CD; /* Lavender Block Color */
+    border: 2px solid #FFFFFF;
+    border-radius: 25px;
+    display: inline-block;
+    width: 100%;
+    max-width: 450px;
+    text-align: left; /* Keep internal text left aligned */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.milestone-card:hover {
+    transform: scale(1.02);
+}
+
+.year {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Semesters Highlights */
+.semester-highlights {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.sem-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #FFFFFF;
+    flex: 1;
+    text-align: center;
+}
+
+.sem-label { display: block; font-size: 0.7rem; text-transform: uppercase; }
+.sem-value { font-weight: bold; font-size: 1rem; }
+
+/* --- DECORATIONS & FLOWERS --- */
+.real-flower-corner {
+    position: fixed;
+    bottom: -10px;
+    left: 10px;
+    display: flex;
+    align-items: flex-end;
+    z-index: 100;
+    pointer-events: none; /* Allows scrolling if you click them */
+}
+
+.real-tulip { height: 180px; width: auto; }
+.real-sunflower { height: 140px; width: auto; margin-left: -40px; }
+
+/* --- CURSOR --- */
+.cursor { color: #FFFFFF; font-weight: bold; animation: blink 0.8s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
