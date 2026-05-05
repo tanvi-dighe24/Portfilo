@@ -208,3 +208,167 @@ body {
 /* --- CURSOR --- */
 .cursor { color: #FFFFFF; font-weight: bold; animation: blink 0.8s infinite; }
 @keyframes blink { 50% { opacity: 0; } }
+
+/* --- TECH STACK SECTION STYLING --- */
+.tech-stack-page {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    box-sizing: border-box;
+}
+
+.bubble-container {
+    display: flex;
+    flex-direction: row; /* FORCES SIDE-BY-SIDE */
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.glass-bubble {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 420px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.glass-bubble:hover {
+    transform: translateY(-10px);
+}
+
+.glass-bubble h3 {
+    color: #000000; /* BLACK TEXT */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 85%;
+}
+
+.data-grid, .ai-grid { grid-template-columns: repeat(3, 1fr); }
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tech-item img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.tech-item p {
+    color: #000000; /* BLACK TEXT */
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+/* RESPONSIVE: If screen is small, they will stack safely */
+@media (max-width: 1250px) {
+    .bubble-container {
+        flex-direction: column;
+    }
+}
+
+
+/* --- PROJECTS PAGE CONTAINER --- */
+.projects-page {
+    background-color: #EBB2D6; /* Theme Pink */
+    padding: 80px 5vw;
+}
+
+.category-block {
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+.row-label {
+    font-family: 'Playfair Display', serif;
+    color: #1A1A1A; /* Dark Title */
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #9F81CD;
+    display: inline-block;
+}
+
+/* --- THE BLOCK (CARD) DESIGN --- */
+.project-card {
+    background: #FFFFFF; /* Separate white block */
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Category Accent Borders */
+.ai-accent { border-left: 10px solid #9F81CD; }  /* Deep Purple */
+.dev-accent { border-left: 10px solid #F198AF; } /* Dark Pink */
+.data-accent { border-left: 10px solid #1A1A1A; } /* Black */
+
+/* Dark Font Styling */
+.project-card h3 {
+    color: #1A1A1A !important; 
+    font-weight: 800;
+    margin-top: 0;
+}
+
+.project-category {
+    color: #4B0082 !important; /* Indigo Purple */
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.project-desc {
+    color: #2D2D2D !important; /* Dark Charcoal */
+    font-weight: 500;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Black Link Buttons */
+.github-btn {
+    background: #1A1A1A; 
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.github-btn:hover {
+    background: #9F81CD;
+}
