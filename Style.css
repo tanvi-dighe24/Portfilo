@@ -372,3 +372,101 @@ body {
 .github-btn:hover {
     background: #9F81CD;
 }
+
+
+
+/* --- PAGE 5: ACHIEVEMENTS --- */
+.achievements-page {
+    padding: 100px 5vw;
+    background: #EBB2D6; /* Theme Pink */
+    text-align: center;
+}
+
+.milestone-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.milestone-badge {
+    position: relative;
+    width: 280px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 40px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+/* Hover Effect: The card expands and glows */
+.milestone-badge:hover {
+    transform: scale(1.05) translateY(-10px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 40px rgba(159, 129, 205, 0.3);
+}
+
+.badge-tag {
+    background: #1A1A1A;
+    color: white;
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.badge-icon {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.badge-content h4 {
+    color: #1A1A1A;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin: 10px 0;
+}
+
+.badge-content p {
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.mini-detail {
+    font-size: 0.75rem !important;
+    color: #666 !important;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+/* The Link Button */
+.view-cert {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #9F81CD;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    opacity: 0; /* Hidden by default */
+    transition: 0.3s;
+}
+
+.milestone-badge:hover .view-cert {
+    opacity: 1; /* Revealed on hover */
+}
+
+.verified-badge {
+    display: block;
+    margin-top: 15px;
+    color: #4B0082;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
