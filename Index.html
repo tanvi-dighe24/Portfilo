@@ -1,472 +1,128 @@
-/* --- UNIVERSAL & SMOOTHING --- */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #EBB2D6; /* Your Custom Pink */
-    font-family: 'Inter', sans-serif;
-    color: #FFFFFF; /* All Font White */
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
-/* --- PAGE 1: WELCOMY SECTION --- */
-.aesthetic-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
-    z-index: -1;
-}
-
-.hero-header {
-    text-align: center;
-    padding-top: 8vh; /* Added space to separate text from photo */
-    min-height: 160px;
-    position: relative;
-    z-index: 10;
-}
-
-.main-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    margin: 0;
-    letter-spacing: -2px;
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1); 
-}
-
-.role-container {
-    font-size: 1.7rem;
-    font-weight: 600;
-    margin-top: 15px;
-    height: 40px;
-}
-
-.hero-layout {
-    position: relative;
-    display: flex;
-    justify-content: center; /* Centers your main photo */
-    align-items: flex-end;
-    height: 60vh;
-    width: 100%;
-    margin-top: 6vh; /* Pushes photo further down from roles */
-}
-
-/* Pushing Side Images to Far Corners */
-.side-image {
-    position: absolute;
-    bottom: 5vh;
-}
-
-.outer-left {
-    left: 3vw; /* Anchored to left corner */
-}
-
-.outer-right {
-    right: 3vw; /* Anchored to right corner */
-}
-
-.side-image img {
-    width: 20vw;
-    height: 42vh; 
-    object-fit: cover;
-    border-radius: 30px;
-    border: 3px solid #FFFFFF; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.center-photo {
-    z-index: 5;
-}
-
-.center-photo img {
-    height: auto;
-    max-height: 65vh;
-    width: auto;
-    object-fit: contain;
-    border-radius: 200px 200px 0 0;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
-}
-
-/* --- PAGE 2: ACADEMIC JOURNEY --- */
-.education-page {
-    min-height: 100vh;
-    width: 100%;
-    padding: 100px 0;
-    position: relative;
-}
-
-.section-title {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin-bottom: 80px;
-}
-
-.timeline-container {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Central Line */
-.timeline-container::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: #FFFFFF;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    padding: 20px 60px;
-    position: relative;
-    width: 50%;
-    box-sizing: border-box;
-}
-
-.left { left: 0; text-align: right; }
-.right { left: 50%; text-align: left; }
-
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #FFFFFF;
-    top: 45px;
-    border-radius: 50%;
-    z-index: 2;
-    border: 4px solid #EBB2D6;
-}
-
-.left::after { right: -12px; }
-.right::after { left: -12px; }
-
-/* LAVENDER BLOCKS */
-.milestone-card {
-    padding: 30px;
-    background-color: #9F81CD; /* Lavender Block Color */
-    border: 2px solid #FFFFFF;
-    border-radius: 25px;
-    display: inline-block;
-    width: 100%;
-    max-width: 450px;
-    text-align: left; /* Keep internal text left aligned */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
-}
-
-.milestone-card:hover {
-    transform: scale(1.02);
-}
-
-.year {
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-/* Semesters Highlights */
-.semester-highlights {
-    display: flex;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.sem-box {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    border-radius: 12px;
-    border: 1px solid #FFFFFF;
-    flex: 1;
-    text-align: center;
-}
-
-.sem-label { display: block; font-size: 0.7rem; text-transform: uppercase; }
-.sem-value { font-weight: bold; font-size: 1rem; }
-
-/* --- DECORATIONS & FLOWERS --- */
-.real-flower-corner {
-    position: fixed;
-    bottom: -10px;
-    left: 10px;
-    display: flex;
-    align-items: flex-end;
-    z-index: 100;
-    pointer-events: none; /* Allows scrolling if you click them */
-}
-
-.real-tulip { height: 180px; width: auto; }
-.real-sunflower { height: 140px; width: auto; margin-left: -40px; }
-
-/* --- CURSOR --- */
-.cursor { color: #FFFFFF; font-weight: bold; animation: blink 0.8s infinite; }
-@keyframes blink { 50% { opacity: 0; } }
-
-/* --- TECH STACK SECTION STYLING --- */
-.tech-stack-page {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 80px 20px;
-    box-sizing: border-box;
-}
-
-.bubble-container {
-    display: flex;
-    flex-direction: row; /* FORCES SIDE-BY-SIDE */
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    width: 100%;
-    margin-top: 30px;
-}
-
-.glass-bubble {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    width: 420px;
-    height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
-
-.glass-bubble:hover {
-    transform: translateY(-10px);
-}
-
-.glass-bubble h3 {
-    color: #000000; /* BLACK TEXT */
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    font-family: 'Inter', sans-serif;
-}
-
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    width: 85%;
-}
-
-.data-grid, .ai-grid { grid-template-columns: repeat(3, 1fr); }
-
-.tech-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.tech-item img {
-    width: 35px;
-    height: 35px;
-    object-fit: contain;
-}
-
-.tech-item p {
-    color: #000000; /* BLACK TEXT */
-    font-size: 0.65rem;
-    font-weight: 600;
-    margin-top: 5px;
-    text-transform: uppercase;
-}
-
-/* RESPONSIVE: If screen is small, they will stack safely */
-@media (max-width: 1250px) {
-    .bubble-container {
-        flex-direction: column;
-    }
-}
-
-
-/* --- PROJECTS PAGE CONTAINER --- */
-.projects-page {
-    background-color: #EBB2D6; /* Theme Pink */
-    padding: 80px 5vw;
-}
-
-.category-block {
-    margin-bottom: 60px;
-    width: 100%;
-}
-
-.row-label {
-    font-family: 'Playfair Display', serif;
-    color: #1A1A1A; /* Dark Title */
-    font-size: 2rem;
-    margin-bottom: 30px;
-    border-bottom: 3px solid #9F81CD;
-    display: inline-block;
-}
-
-/* --- THE BLOCK (CARD) DESIGN --- */
-.project-card {
-    background: #FFFFFF; /* Separate white block */
-    border-radius: 25px;
-    padding: 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Category Accent Borders */
-.ai-accent { border-left: 10px solid #9F81CD; }  /* Deep Purple */
-.dev-accent { border-left: 10px solid #F198AF; } /* Dark Pink */
-.data-accent { border-left: 10px solid #1A1A1A; } /* Black */
-
-/* Dark Font Styling */
-.project-card h3 {
-    color: #1A1A1A !important; 
-    font-weight: 800;
-    margin-top: 0;
-}
-
-.project-category {
-    color: #4B0082 !important; /* Indigo Purple */
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-}
-
-.project-desc {
-    color: #2D2D2D !important; /* Dark Charcoal */
-    font-weight: 500;
-    line-height: 1.6;
-    flex-grow: 1;
-}
-
-/* Black Link Buttons */
-.github-btn {
-    background: #1A1A1A; 
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 12px;
-    text-align: center;
-    font-weight: 600;
-    margin-top: 20px;
-}
-
-.github-btn:hover {
-    background: #9F81CD;
-}
-
-
-
-/* --- PAGE 5: ACHIEVEMENTS --- */
-.achievements-page {
-    padding: 100px 5vw;
-    background: #EBB2D6; /* Theme Pink */
-    text-align: center;
-}
-
-.milestone-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.milestone-badge {
-    position: relative;
-    width: 280px;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(15px);
-    border-radius: 30px;
-    padding: 40px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
-}
-
-/* Hover Effect: The card expands and glows */
-.milestone-badge:hover {
-    transform: scale(1.05) translateY(-10px);
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 20px 40px rgba(159, 129, 205, 0.3);
-}
-
-.badge-tag {
-    background: #1A1A1A;
-    color: white;
-    font-size: 0.7rem;
-    padding: 5px 12px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.badge-icon {
-    font-size: 3rem;
-    margin: 20px 0;
-}
-
-.badge-content h4 {
-    color: #1A1A1A;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    margin: 10px 0;
-}
-
-.badge-content p {
-    color: #333;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.mini-detail {
-    font-size: 0.75rem !important;
-    color: #e421e4 !important;
-    margin-top: 10px;
-    line-height: 1.4;
-}
-
-/* The Link Button */
-.view-cert {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #9F81CD;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 0.8rem;
-    opacity: 0; /* Hidden by default */
-    transition: 0.3s;
-}
-
-.milestone-badge:hover .view-cert {
-    opacity: 1; /* Revealed on hover */
-}
-
-.verified-badge {
-    display: block;
-    margin-top: 15px;
-    color: #4B0082;
-    font-weight: 700;
-    font-size: 0.8rem;
-}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanvi Dighe | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="aesthetic-bg"></div>
+
+    <!-- Hero Section -->
+    <header class="hero-header">
+        <h1 class="main-name">Tanvi Dighe</h1>
+
+        <div class="role-container">
+            <span id="role-text"></span>
+            <span class="cursor">|</span>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="hero-layout">
+
+        <!-- Left Image -->
+        <div class="side-image outer-left">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600"
+                alt="Aesthetic Workspace">
+        </div>
+
+        <!-- Center Photo -->
+        <div class="center-photo">
+            <img src="MyPhoto.jpeg" alt="Tanvi Dighe">
+        </div>
+
+        <!-- Right Image -->
+        <div class="side-image outer-right">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=600"
+                alt="Aesthetic Coding">
+        </div>
+
+    </main>
+
+    <!-- Education Section -->
+    <section class="education-page">
+
+        <h2 class="section-title">Academic Journey</h2>
+
+        <div class="timeline-container">
+
+            <!-- 10th -->
+            <div class="timeline-item left">
+                <div class="milestone-card">
+                    <span class="year">Secondary Education</span>
+                    <h3>10th Grade | 91%</h3>
+                    <p>Atma Malik International School</p>
+                </div>
+            </div>
+
+            <!-- 12th -->
+            <div class="timeline-item right">
+                <div class="milestone-card">
+                    <span class="year">Higher Secondary</span>
+                    <h3>12th Grade | 79%</h3>
+                    <p>Atma Malik International School</p>
+                </div>
+            </div>
+
+            <!-- BE -->
+            <div class="timeline-item left">
+                <div class="milestone-card">
+
+                    <span class="year">June 2025</span>
+
+                    <h3>BE Computer Engineering | 8.6 CGPA</h3>
+
+                    <p>Savitribai Phule Pune University</p>
+
+                    <div class="semester-highlights">
+
+                        <div class="sem-box">
+                            <span class="sem-label">7th Sem</span>
+                            <span class="sem-value">9.70 SGPA</span>
+                        </div>
+
+                        <div class="sem-box">
+                            <span class="sem-label">8th Sem</span>
+                            <span class="sem-value">9.50 SGPA</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Flowers -->
+    <div class="real-flower-corner">
+
+        <img src="https://pngimg.com/d/tulip_PNG8984.png"
+            alt="Tulip"
+            class="real-tulip">
+
+        <img src="https://pngimg.com/d/sunflower_PNG102143.png"
+            alt="Sunflower"
+            class="real-sunflower">
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
