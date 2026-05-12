@@ -245,3 +245,75 @@ body {
         opacity: 0;
     }
 }
+
+
+
+
+/* --- PAGE 3: TECH POCKETS --- */
+.skills-page {
+    min-height: 100vh;
+    padding: 80px 2vw;
+    background-color: #EBB2D6;
+}
+
+.pockets-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-pocket {
+    background: rgba(255, 255, 255, 0.2); /* Transparent Glass Effect */
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.tech-pocket h3 {
+    font-family: 'Playfair Display', serif;
+    color: #9F81CD; /* Purple Heading */
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.bubble-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    background: white; /* Makes logos pop inside transparent bubble */
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.skill-item p {
+    font-size: 0.75rem;
+    color: #000000; /* Black font for clarity */
+    font-weight: 600;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
