@@ -1,6 +1,6 @@
 /**
  * Role Animation Script for Tanvi Dighe's Portfolio
- * Handles the "typing" and "erasing" flow of professional titles.
+ * Handles typing and erasing animation of professional roles.
  */
 
 const roles = [
@@ -12,45 +12,52 @@ const roles = [
 
 let roleIndex = 0;
 let charIndex = 0;
-let isErasing = false;
+let isDeleting = false;
+
 const roleElement = document.getElementById("role-text");
 
-// Speed settings (in milliseconds)
+// Typing speeds
 const typingSpeed = 100;
-const erasingSpeed = 60;
-const delayBetweenRoles = 2000; // How long the text stays visible
+const deletingSpeed = 60;
+const pauseTime = 2000;
 
-function type() {
+function typeEffect() {
+
+    // Safety check
+    if (!roleElement) return;
+
     const currentRole = roles[roleIndex];
 
-    if (!isErasing) {
-        // Typing state
+    if (!isDeleting) {
+
+        // Typing text
         roleElement.textContent = currentRole.substring(0, charIndex + 1);
         charIndex++;
 
         if (charIndex === currentRole.length) {
-            isErasing = true;
-            setTimeout(type, delayBetweenRoles);
+            isDeleting = true;
+            setTimeout(typeEffect, pauseTime);
         } else {
-            setTimeout(type, typingSpeed);
+            setTimeout(typeEffect, typingSpeed);
         }
+
     } else {
-        // Erasing state
+
+        // Deleting text
         roleElement.textContent = currentRole.substring(0, charIndex - 1);
         charIndex--;
 
         if (charIndex === 0) {
-            isErasing = false;
-            roleIndex = (roleIndex + 1) % roles.length; // Loop back to start
-            setTimeout(type, 500); // Small pause before typing next role
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(typeEffect, 500);
         } else {
-            setTimeout(type, erasingSpeed);
+            setTimeout(typeEffect, deletingSpeed);
         }
     }
 }
 
-// Start the animation once the page has loaded
+// Start animation after page loads
 document.addEventListener("DOMContentLoaded", () => {
-    // 1 second delay at the very start for a "premium" feel
-    setTimeout(type, 1000);
+    setTimeout(typeEffect, 1000);
 });
