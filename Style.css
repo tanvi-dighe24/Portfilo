@@ -312,12 +312,139 @@ body {
 
 .skill-item p {
     font-size: 0.75rem;
-    color: #000000; /* Black font for clarity */
+    color: #150e12; /* Black font for clarity */
     font-weight: 600;
     margin-top: 8px;
     text-transform: uppercase;
 }
 
+
+.projects-page {
+    padding: 100px 5vw;
+    background-color: #EBB2D6; /* Theme background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.project-content {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    color: #f80e68;
+    margin-bottom: 12px;
+}
+
+/* --- PROJECTS PAGE CONTAINER --- */
+.projects-page {
+    background-color: #EBB2D6; /* Theme Pink */
+    padding: 80px 5vw;
+}
+
+.category-block {
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+.row-label {
+    font-family: 'Playfair Display', serif;
+    color: #fc0a97; /* Dark Title */
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #9F81CD;
+    display: inline-block;
+}
+
+/* --- THE BLOCK (CARD) DESIGN --- */
+.project-card {
+    background: #FFFFFF; /* Separate white block */
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Category Accent Borders */
+.ai-accent { border-left: 10px solid #9F81CD; }  /* Deep Purple */
+.dev-accent { border-left: 10px solid #F198AF; } /* Dark Pink */
+.data-accent { border-left: 10px solid #1A1A1A; } /* Black */
+
+/* Dark Font Styling */
+.project-card h3 {
+    color: #fd0acc !important; 
+    font-weight: 800;
+    margin-top: 0;
+}
+
+.project-category {
+    color: #4B0082 !important; /* Indigo Purple */
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.project-desc {
+    color: #2D2D2D !important; /* Dark Charcoal */
+    font-weight: 500;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Black Link Buttons */
+.github-btn {
+    background: #1A1A1A; 
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.github-btn:hover {
+    background: #9F81CD;
+}
 
 /* --- PAGE 4: PROJECT SECTION --- */
 .projects-page {
