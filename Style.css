@@ -1,63 +1,803 @@
-/**
- * Role Animation Script for Tanvi Dighe's Portfolio
- * Handles typing and erasing animation of professional roles.
- */
+/* --- UNIVERSAL & SMOOTHING --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EBB2D6;
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 
-const roles = [
-    "Full Stack Developer",
-    "Data Analyst",
-    "Python Programmer",
-    "AI Engineer"
-];
+/* --- PAGE 1: WELCOME SECTION --- */
+.aesthetic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
+    z-index: -1;
+}
 
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+.hero-header {
+    text-align: center;
+    padding-top: 8vh;
+    min-height: 160px;
+    position: relative;
+    z-index: 10;
+}
 
-const roleElement = document.getElementById("role-text");
+.main-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    margin: 0;
+    letter-spacing: -2px;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-// Typing speeds
-const typingSpeed = 100;
-const deletingSpeed = 60;
-const pauseTime = 2000;
+.role-container {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-top: 15px;
+    height: 40px;
+}
 
-function typeEffect() {
+.hero-layout {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 60vh;
+    width: 100%;
+    margin-top: 6vh;
+}
 
-    // Safety check
-    if (!roleElement) return;
+/* Side Images */
+.side-image {
+    position: absolute;
+    bottom: 5vh;
+}
 
-    const currentRole = roles[roleIndex];
+.outer-left {
+    left: 3vw;
+}
 
-    if (!isDeleting) {
+.outer-right {
+    right: 3vw;
+}
 
-        // Typing text
-        roleElement.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
+.side-image img {
+    width: 20vw;
+    height: 42vh;
+    object-fit: cover;
+    border-radius: 30px;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
-        if (charIndex === currentRole.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, pauseTime);
-        } else {
-            setTimeout(typeEffect, typingSpeed);
-        }
+.center-photo {
+    z-index: 5;
+}
 
-    } else {
+.center-photo img {
+    height: auto;
+    max-height: 65vh;
+    width: auto;
+    object-fit: contain;
+    border-radius: 200px 200px 0 0;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
 
-        // Deleting text
-        roleElement.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
+/* --- PAGE 2: EDUCATION SECTION --- */
+.education-page {
+    min-height: 100vh;
+    width: 100%;
+    padding: 100px 0;
+    position: relative;
+}
 
-        if (charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            setTimeout(typeEffect, 500);
-        } else {
-            setTimeout(typeEffect, deletingSpeed);
-        }
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 80px;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Central Line */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #FFFFFF;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    padding: 20px 60px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.left {
+    left: 0;
+    text-align: right;
+}
+
+.right {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #FFFFFF;
+    top: 45px;
+    border-radius: 50%;
+    z-index: 2;
+    border: 4px solid #EBB2D6;
+}
+
+.left::after {
+    right: -12px;
+}
+
+.right::after {
+    left: -12px;
+}
+
+/* Lavender Cards */
+.milestone-card {
+    padding: 30px;
+    background-color: #9F81CD;
+    border: 2px solid #FFFFFF;
+    border-radius: 25px;
+    display: inline-block;
+    width: 100%;
+    max-width: 450px;
+    text-align: left;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.milestone-card:hover {
+    transform: scale(1.02);
+}
+
+.year {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Semester Highlights */
+.semester-highlights {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.sem-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #FFFFFF;
+    flex: 1;
+    text-align: center;
+}
+
+.sem-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.sem-value {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Decorations */
+.real-flower-corner {
+    position: fixed;
+    bottom: -10px;
+    left: 10px;
+    display: flex;
+    align-items: flex-end;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.real-tulip {
+    height: 180px;
+    width: auto;
+}
+
+.real-sunflower {
+    height: 140px;
+    width: auto;
+    margin-left: -40px;
+}
+
+/* Cursor Animation */
+.cursor {
+    color: #FFFFFF;
+    font-weight: bold;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
     }
 }
 
-// Start animation after page loads
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(typeEffect, 1000);
-});
+
+
+
+/* --- PAGE 3: TECH POCKETS --- */
+.skills-page {
+    min-height: 100vh;
+    padding: 80px 2vw;
+    background-color: #EBB2D6;
+}
+
+.pockets-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-pocket {
+    background: rgba(255, 255, 255, 0.2); /* Transparent Glass Effect */
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.tech-pocket h3 {
+    font-family: 'Playfair Display', serif;
+    color: #9F81CD; /* Purple Heading */
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.bubble-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    background: white; /* Makes logos pop inside transparent bubble */
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.skill-item p {
+    font-size: 0.75rem;
+    color: #000000; /* Black font for clarity */
+    font-weight: 600;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+
+/* --- PAGE 4: PROJECT SECTION --- */
+.projects-page {
+    min-height: 100vh;
+    padding: 100px 5vw;
+    background-color: #EBB2D6; /* Theme Pink */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #FFFFFF; /* Separate white block */
+    border-radius: 25px;
+    padding: 35px;
+    border: 2px solid #9F81CD; /* Lavender border */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Dark Font Styling */
+.project-card h3 {
+    color: #1A1A1A; /* Dark Charcoal Title */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.project-category {
+    color: #5E35B1; /* Dark Purple Label */
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin: 10px 0 20px 0;
+    text-transform: uppercase;
+}
+
+.project-desc {
+    color: #2D2D2D; /* Dark Gray Body Text */
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* GitHub Button Styling */
+.github-btn {
+    background: #9F81CD;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.github-btn:hover {
+    background: #1A1A1A; /* Turns dark on hover for contrast */
+    transform: translateY(-3px);
+}
+
+.project-tags span {
+    color: #1A1A1A;
+    background: #F0E6FF;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+
+
+/* --- PROJECTS PAGE CONTAINER --- */
+.projects-page {
+    background-color: #EBB2D6; /* Theme Pink */
+    padding: 80px 5vw;
+}
+
+.category-block {
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+.row-label {
+    font-family: 'Playfair Display', serif;
+    color: #1A1A1A; /* Dark Title */
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #9F81CD;
+    display: inline-block;
+}
+
+/* --- THE BLOCK (CARD) DESIGN --- */
+.project-card {
+    background: #FFFFFF; /* Separate white block */
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Category Accent Borders */
+.ai-accent { border-left: 10px solid #9F81CD; }  /* Deep Purple */
+.dev-accent { border-left: 10px solid #F198AF; } /* Dark Pink */
+.data-accent { border-left: 10px solid #1A1A1A; } /* Black */
+
+/* Dark Font Styling */
+.project-card h3 {
+    color: #1A1A1A !important; 
+    font-weight: 800;
+    margin-top: 0;
+}
+
+.project-category {
+    color: #4B0082 !important; /* Indigo Purple */
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.project-desc {
+    color: #2D2D2D !important; /* Dark Charcoal */
+    font-weight: 500;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Black Link Buttons */
+.github-btn {
+    background: #1A1A1A; 
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.github-btn:hover {
+    background: #9F81CD;
+}
+
+
+
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #EBB2D6; /* Theme Pink */
+    color: #1A1A1A; /* Dark font for all text */
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #1A1A1A;
+}
+
+/* PAGE 3: TECH POCKETS (The Bubbles) */
+.skills-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+
+.tech-pocket {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.tech-pocket h3 {
+    margin-bottom: 20px;
+    color: #4B0082; /* Deep Indigo */
+}
+
+/* PAGE 4: PROJECT BLOCKS */
+.projects-page {
+    padding: 100px 5vw;
+}
+
+.row-label {
+    font-family: 'Playfair Display', serif;
+    margin: 40px auto 20px auto;
+    border-bottom: 2px solid #9F81CD;
+    max-width: 1200px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.project-card {
+    background: #FFFFFF;
+    border-radius: 25px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Accent Borders */
+.ai-accent { border-left: 10px solid #9F81CD; }
+.dev-accent { border-left: 10px solid #F198AF; }
+.data-accent { border-left: 10px solid #1A1A1A; }
+
+.project-card h3 { color: #1A1A1A; margin-bottom: 10px; }
+.project-category { color: #4B0082; font-weight: 700; font-size: 0.8rem; }
+.project-desc { color: #333; margin: 15px 0; line-height: 1.5; flex-grow: 1; }
+
+.github-btn {
+    background: #1A1A1A;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+
+.achievements-page {
+    padding: 80px 5%;
+    background-color: #EBB2D6;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.achieve-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.achieve-card:hover {
+    transform: translateY(-10px);
+}
+
+.achieve-img {
+    width: 100%;
+    height: 250px;
+}
+
+.achieve-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes it look like a professional gallery */
+}
+
+.achieve-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.tag {
+    background: #1A1A1A;
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.achieve-info h3 {
+    margin-top: 15px;
+    color: #1A1A1A;
+    font-family: 'Playfair Display', serif;
+}
+
+
+
+.achievements-page {
+    padding: 100px 5vw;
+    background-color: #EBB2D6;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.achieve-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.achieve-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.achieve-info {
+    padding: 35px 30px;
+    text-align: left;
+}
+
+.tag {
+    background: #1A1A1A;
+    color: white;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.achieve-info h3 {
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.achieve-info p {
+    margin: 0;
+    color: #333333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+
+
+
+.contact-page {
+    padding: 100px 5vw;
+    background-color: #EBB2D6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    color: #1A1A1A;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #1A1A1A;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #1A1A1A;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #1A1A1A;
+}
+
+.submit-btn {
+    background: #1A1A1A;
+    color: #FFFFFF;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #333333;
+    transform: translateY(-2px);
+}
+
+/* Social Media Badges Container */
+.social-badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.social-badges-container a {
+    transition: transform 0.3s ease;
+}
+
+.social-badges-container a:hover {
+    transform: scale(1.08);
+}
+
+
+
